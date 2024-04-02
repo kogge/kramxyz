@@ -14,21 +14,23 @@ const { title } = Astro.props;
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://rsms.me/">
+		<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
 		<div class="flex flex-row justify-center h-screen">
-			<div class="w-4 md:w-28 bg-[#d1cee5]"></div>
-			<header class="p-4 shadow-md">
-				<h1>
-					KRÄM.xyz
+			<div class="mr-8 w-8 md:w-28 bg-[#d1cee5]"></div>
+			<header class="absolute grow p-4 border-dotted border-red">
+				<h1 class="text-2xl font-sans font-bold">
+					<a href="/">KRÄM.xyz</a>
 				</h1>
 			</header>
-					<main class="grow bg-white">
+					<main class="grow bg-white pt-20">
 						<slot />
 					</main>
-			<div class="w-4 md:w-28 bg-[#fbcdcf]"></div>
+			<div class="ml-8 w-8 md:w-28 bg-[#fbcdcf]"></div>
 		</div>
 	</body>
 </html>
