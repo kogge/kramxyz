@@ -2,5 +2,52 @@
 import Layout from '../../layouts/Layout.astro';
 ---
 <Layout>
-    <h1>Ohms lag</h1>
+    <h1 class="text-xl">Ohms lag</h1>
+    <div class="max-w-md mx-auto mt-10 pb-20 space-y-4">
+        <div>
+            <label for="volt" class="block text-sm font-medium text-gray-700">Spänning (U) i Volt</label>
+            <input type="number" id="volt" class="input mt-1 block w-full rounded-md border-gray-300 shadow-s" placeholder="Ange spänning (U)" oninput="calculateOhmsLaw()">
+        </div>
+        <div>
+            <label for="strom" class="block text-sm font-medium text-gray-700">Ström (I) i Ampere</label>
+            <input type="number" id="strom" class="input mt-1 block w-full rounded-md border-gray-300 shadow-sm" placeholder="Ange ström (I)" oninput="calculateOhmsLaw()">
+        </div>
+        <div>
+            <label for="resistans" class="block text-sm font-medium text-gray-700">Resistans (R) i Ohm</label>
+            <input type="number" id="resistans" class="input mt-1 block w-full rounded-md border-gray-300 shadow-sm" placeholder="Ange resistans (R)" oninput="calculateOhmsLaw()">
+        </div>
+        <button onclick="aterstallFalt()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Återställ</button>
+    </div>
+    <h2 class="text-l">INFO OM:</h2>
+    <p>Ohms lag är en grundläggande princip inom elektrotekniken som beskriver sambandet mellan spänning, ström, och resistans i en elektrisk krets. Lagen formuleras vanligtvis i tre relaterade ekvationer: <br /> </p>
+    <p>Ohms lag: <br> <span alt="">\(U = I \times R\)</span> <br>
+        där U är spänningen (mäts i volt),
+        I är strömmen (mäts i ampere), och
+        R är resistansen (mäts i ohm). Ohms lag visar att spänningen över en resistor är direkt proportionell mot strömmen genom resistorn, där resistansen är proportionalitetskonstanten.</p>
 </Layout>
+
+<script is:inline>
+    function calculateOhmsLaw() {
+        let volt = document.getElementById('volt').value;
+        let strom = document.getElementById('strom').value;
+        let resistans = document.getElementById('resistans').value;
+
+        // Beräkna det saknade värdet
+        if (volt !== '' && strom !== '' && resistans === '') {
+            // Räkna ut Resistans
+            document.getElementById('resistans').value = (volt / strom).toFixed(2);
+        } else if (volt !== '' && resistans !== '' && strom === '') {
+            // Räkna ut Ström
+            document.getElementById('strom').value = (volt / resistans).toFixed(2);
+        } else if (strom !== '' && resistans !== '' && volt === '') {
+            // Räkna ut Spänning
+            document.getElementById('volt').value = (strom * resistans).toFixed(2);
+        }
+    }
+
+    function aterstallFalt() {
+        document.getElementById('volt').value = '';
+        document.getElementById('strom').value = '';
+        document.getElementById('resistans').value = '';
+    }
+</script>
