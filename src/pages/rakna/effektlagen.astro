@@ -3,6 +3,21 @@ import Layout from "../../layouts/Layout.astro";
 ---
 <Layout>
     <h1>Effektlagen</h1>
+    <div class="max-w-md mx-auto mt-10 space-y-4">
+        <div>
+            <label for="volt" class="block text-sm font-medium text-gray-700">Spänning (U) i Volt</label>
+            <input type="number" id="volt" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" placeholder="Ange spänning (U)" oninput="kalkEffektlagen()">
+        </div>
+        <div>
+            <label for="strom" class="block text-sm font-medium text-gray-700">Ström (I) i Ampere</label>
+            <input type="number" id="strom" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" placeholder="Ange ström (I)" oninput="kalkEffektlagen()">
+        </div>
+        <div>
+            <label for="effekt" class="block text-sm font-medium text-gray-700">Effekt (P) i Watt</label>
+            <input type="number" id="effekt" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" placeholder="Ange effekt (P)" oninput="kalkEffektlagen()">
+        </div>
+        <button onclick="aterstall()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Återställ</button>
+    </div>
     <h2>INFO:</h2>
     <p>Effektlagen (även känd som Joules lag i vissa sammanhang) är en grundläggande princip inom elektrotekniken som beskriver relationen mellan elektrisk effekt och de övriga elektriska storheterna i en krets, såsom spänning, ström och resistans. Effektlagen uttrycker hur mycket arbete per tidsenhet som utförs i en elektrisk krets eller hur mycket energi per tidsenhet som förbrukas av en elektrisk enhet. <br>
         Effektlagen kan formuleras på flera sätt, beroende på vilka andra elektriska storheter som är kända: <br>
@@ -11,3 +26,25 @@ import Layout from "../../layouts/Layout.astro";
     <p>Effektlagen (spänning och resistans): \(P = V^2 \times R\)</p>
         <p>där P är effekten (mäts i watt, W), V är spänningen (mäts i volt, V), I är strömmen (mäts i ampere, A), och R är resistansen (mäts i ohm, Ω).</p>
 </Layout>
+
+<script is:inline>
+    function kalkEffektlagen() {
+        let volt = parseFloat(document.getElementById('volt').value);
+        let strom = parseFloat(document.getElementById('strom').value);
+        let effekt = parseFloat(document.getElementById('effekt').value);
+
+        if (!isNaN(volt) && !isNaN(strom) && isNaN(effekt)) {
+            document.getElementById('effekt').value = (volt * strom).toFixed(2);
+        } else if (!isNaN(volt) && isNaN(strom) && !isNaN(effekt)) {
+            document.getElementById('strom').value = (effekt / volt).toFixed(2);
+        } else if (isNaN(volt) && !isNaN(strom) && !isNaN(effekt)) {
+            document.getElementById('volt').value = (effekt / strom).toFixed(2);
+        }
+    }
+
+    function aterstall() {
+        document.getElementById('volt').value = '';
+        document.getElementById('strom').value = '';
+        document.getElementById('effekt').value = '';
+    }
+</script>
