@@ -3,7 +3,8 @@ import Layout from "../../layouts/Layout.astro";
 ---
 <Layout>
     <h1>Effektlagen</h1>
-    <div class="max-w-md mx-auto mt-10 space-y-4">
+    <p class="py-4">Fyll i två fält för att få det tredje fyllt:</p>
+    <div class="max-w-md mt-4 space-y-4">
         <div>
             <label for="volt" class="block text-sm font-medium text-gray-700">Spänning (U) i Volt</label>
             <input type="number" id="volt" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" placeholder="Ange spänning (U)" oninput="kalkEffektlagen()">
@@ -16,15 +17,17 @@ import Layout from "../../layouts/Layout.astro";
             <label for="effekt" class="block text-sm font-medium text-gray-700">Effekt (P) i Watt</label>
             <input type="number" id="effekt" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" placeholder="Ange effekt (P)" oninput="kalkEffektlagen()">
         </div>
-        <button onclick="aterstall()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Återställ</button>
+        <button onclick="aterstall()" class="text-white hover:text-black hover:underline bg-[#2e9964] hover:bg-[#a4d395] focus:outline-none font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2">Återställ</button>
     </div>
-    <h2>INFO:</h2>
-    <p>Effektlagen (även känd som Joules lag i vissa sammanhang) är en grundläggande princip inom elektrotekniken som beskriver relationen mellan elektrisk effekt och de övriga elektriska storheterna i en krets, såsom spänning, ström och resistans. Effektlagen uttrycker hur mycket arbete per tidsenhet som utförs i en elektrisk krets eller hur mycket energi per tidsenhet som förbrukas av en elektrisk enhet. <br>
-        Effektlagen kan formuleras på flera sätt, beroende på vilka andra elektriska storheter som är kända: <br>
+    <h2 class="pt-16">INFO:</h2>
+    <p>Effektlagen (även känd som Joules lag i vissa sammanhang) är en grundläggande princip inom elektrotekniken som beskriver relationen mellan elektrisk effekt och de övriga elektriska storheterna i en krets, såsom spänning, ström och resistans. Effektlagen uttrycker hur mycket arbete per tidsenhet som utförs i en elektrisk krets eller hur mycket energi per tidsenhet som förbrukas av en elektrisk enhet.
+    <p class="py-4">
+        Effektlagen kan formuleras på flera sätt, beroende på vilka andra elektriska storheter som är kända:
+    </p>
     <p>Effektlagen (spänning och ström): \(P = V \times I\)</p>
     <p>Effektlagen (ström och resistans): \(P = I^2 \times R\)</p>
     <p>Effektlagen (spänning och resistans): \(P = V^2 \times R\)</p>
-        <p>där P är effekten (mäts i watt, W), V är spänningen (mäts i volt, V), I är strömmen (mäts i ampere, A), och R är resistansen (mäts i ohm, Ω).</p>
+    <p class="py-4">där P är effekten (mäts i watt, W), V är spänningen (mäts i volt, V), I är strömmen (mäts i ampere, A), och R är resistansen (mäts i ohm, Ω).</p>
 </Layout>
 
 <script is:inline>
