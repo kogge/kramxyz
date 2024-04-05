@@ -4,11 +4,11 @@ import LinkButton from "../components/LinkButton.astro";
 ---
 
 <Layout>
-    <h1>Vad vill du räkna på?</h1>
-    <ul>
-        <li><a href="rakna/ohmslag">Ohms Lag</a></li>
-        <li><a href="rakna/effektlagen">Effektlagen</a></li>
-        <li><a href="rakna/effektfaktor">Effektfaktor</a></li>
-        <LinkButton bg="green" bgHover="blue" href="#" name="TEST" />
+    <h1 class="text-xl">Vad vill du räkna på?</h1>
+    <ul class="flex flex-col md:flex-row pt-8">
+        <li class="text-white hover:text-black hover:underline bg-[#2e9964] hover:bg-[#a4d395] font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2"><a href="rakna/ohmslag">Ohms Lag</a></li>
+        <li class="text-white hover:text-black hover:underline bg-[#2e9964] hover:bg-[#a4d395] font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2"><a href="rakna/effektlagen">Effektlagen</a></li>
+        <li class="text-white hover:text-black hover:underline bg-[#2e9964] hover:bg-[#a4d395] font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2"><a href="rakna/effektfaktor">Effektfaktor</a></li>
+        <LinkButton bg=green bgHover=blue href=# name=TEST />
     </ul>
 </Layout>
