@@ -1,6 +1,6 @@
 :zap:
 
-# www.ohmslag.xyz - Ett komvuxarbete
+# [ohmslag.xyz](https://komvuxarbete-ohms-lag.pages.dev/) - Ett komvuxarbete
 
 För att köra hemsida lokalt klona arbetet och kör:
 ```sh
