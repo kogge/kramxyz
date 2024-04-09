@@ -46,7 +46,6 @@ import Layout from "../../layouts/Layout.astro";
 </Layout>
 
 <script is:inline>
-    // --- Aktiv Effekt ---
     function kalkylera() {
         const volt = parseFloat(document.getElementById('volt').value) || null;
         const strom = parseFloat(document.getElementById('strom').value) || null;
@@ -74,8 +73,4 @@ import Layout from "../../layouts/Layout.astro";
         document.getElementById('faktor').value = '';
         document.getElementById('effekt').value = '';
     }
-
-    // --- Reaktiv Effekt ---
-
-
 </script>
